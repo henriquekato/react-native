@@ -1,4 +1,4 @@
-export interface IAnswer {
+export interface ICorrectAnswer {
   id: string
   questionId: string
   text: string

@@ -1,5 +1,5 @@
-import { Answer } from "@screens/Answer"
+import { Initial } from "@screens/Initial"
 
-export default function AnswerPage() {
-  return <Answer />
+export default function InitialPage() {
+  return <Initial />
 }
