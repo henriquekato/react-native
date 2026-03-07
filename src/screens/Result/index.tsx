@@ -1,4 +1,4 @@
-import { View } from "react-native"
+import { View, FlatList } from "react-native"
 import { useRouter } from "expo-router"
 
 import { Button } from "@components/ui/Button"
@@ -8,16 +8,38 @@ import { KeyboardAvoidingContainer } from "@components/layout/KeyboardAvoidingVi
 
 import { useQuestions } from "@contexts/QuestionsContext"
 
+import { QuestionResult } from "@contexts/types"
+
+import { styles } from "./styles"
+
 export function Result() {
   const { replace } = useRouter()
-  const { questions } = useQuestions()
+  const { results } = useQuestions()
+
+  const totalCorrect = results.filter((r) => r.isCorrect).length
 
   function handleBackPress() {
     replace("/")
   }
 
-  function renderResults() {
-    return null
+  function renderItem({ item, index }: { item: QuestionResult; index: number }) {
+    return (
+      <View style={[styles.resultItem, item.isCorrect ? styles.correct : styles.incorrect]}>
+        <Typography variant="h5">
+          {index + 1}. {item.question.title}
+        </Typography>
+
+        <Typography variant="b1">
+          Sua resposta: {item.answer || "—"}
+        </Typography>
+
+        {!item.isCorrect && (
+          <Typography variant="b1">
+            Resposta correta: {item.correctAnswer}
+          </Typography>
+        )}
+      </View>
+    )
   }
 
   return (
@@ -25,13 +47,21 @@ export function Result() {
       <KeyboardAvoidingContainer>
         <View style={styles.container}>
           <View style={styles.header}>
-            <Typography variant='h1'>Resultado</Typography>
+            <Typography variant="h1">Resultado</Typography>
+            <Typography variant="h5">
+              {totalCorrect} de {results.length} corretas
+            </Typography>
           </View>
 
-          <View style={styles.results}>{renderResults()}</View>
+          <FlatList
+            data={results}
+            keyExtractor={(item) => item.question.id}
+            renderItem={renderItem}
+            style={styles.results}
+          />
 
           <View style={styles.footer}>
-            <Button title='Voltar' onPress={handleBackPress} />
+            <Button title="Voltar" onPress={handleBackPress} />
           </View>
         </View>
       </KeyboardAvoidingContainer>
