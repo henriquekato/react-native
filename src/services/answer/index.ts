@@ -1,25 +1,20 @@
-import { AnswerRepository } from "@repositories/answer"
-import { CorrectAnswerRepository } from "@repositories/correct-answer"
+import { AnswerRepository } from '@repositories/answer'
+import { CorrectAnswerRepository } from '@repositories/correct-answer'
 
-export function AnswerService() {
-  const answerRepository = AnswerRepository()
-  const correctAnswerRepository = CorrectAnswerRepository()
+export class AnswerService {
+  private answerRepository = new AnswerRepository()
+  private correctAnswerRepository = new CorrectAnswerRepository()
 
-  async function checkAnswer(questionId: string, answer: string) {
-    await answerRepository.save(questionId, answer)
+  async checkAnswer(sessionId: string, questionId: string, answer: string) {
+    await this.answerRepository.save(sessionId, questionId, answer)
 
-    const correctAnswer =
-      await correctAnswerRepository.getByQuestionId(questionId)
+    const correctAnswer = await this.correctAnswerRepository.getByQuestionId(questionId)
 
-    const isCorrect = answer === correctAnswer.text
+    const isCorrect = answer.trim().toLowerCase() === correctAnswer.value.trim().toLowerCase()
 
     return {
       isCorrect,
-      correctAnswer
+      correctAnswer,
     }
-  }
-
-  return {
-    checkAnswer
   }
 }
