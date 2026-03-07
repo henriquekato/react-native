@@ -1,24 +1,27 @@
 import { StyleSheet } from "react-native"
+import { colors, spacing, radius } from "@globals/theme"
 
 export const styles = StyleSheet.create({
   button: {
     height: 48,
-    backgroundColor: "#6200EE",
-    borderRadius: 8,
+    backgroundColor: colors.primary,
+    borderRadius: radius.sm,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    padding: spacing.sm,
   },
 
   pressed: {
-    opacity: 0.7
+    backgroundColor: colors.primaryDark,
   },
 
   text: {
-    color: "#FFF",
-    fontWeight: "600"
+    color: colors.textPrimary,
+    fontWeight: "600",
   },
 
   disabled: {
-    backgroundColor: "#BDBDBD"
-  }
+    backgroundColor: colors.primary,
+    opacity: 0.5
+  },
 })

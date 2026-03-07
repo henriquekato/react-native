@@ -1,21 +1,24 @@
 import { StyleSheet } from "react-native"
+import { colors, spacing, radius, fontSize } from "@globals/theme"
 
 export const styles = StyleSheet.create({
   container: {
-    marginBottom: 16
+    marginBottom: spacing.md,
   },
 
   label: {
-    marginBottom: 6,
-    color: "#333"
+    marginBottom: spacing.xs,
+    color: colors.textSecondary,
   },
 
   input: {
-    height: 44,
+    height: 48,
     borderWidth: 1,
-    borderColor: "#DDD",
-    borderRadius: 8,
-    paddingHorizontal: 12,
-    fontSize: 16
-  }
+    borderColor: colors.border,
+    borderRadius: radius.sm,
+    paddingHorizontal: spacing.md,
+    fontSize: fontSize.b1,
+    backgroundColor: colors.surface,
+    color: colors.textPrimary,
+  },
 })
