@@ -1,20 +1,20 @@
-import { StyleSheet } from 'react-native'
-import { colors, spacing, radius } from '@globals/theme'
+import { StyleSheet } from "react-native"
+import { colors, spacing, radius } from "@globals/theme"
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
     gap: spacing.lg,
     paddingVertical: spacing.lg,
-    paddingHorizontal: spacing.md,
+    paddingHorizontal: spacing.md
   },
 
   header: {
-    gap: spacing.xs,
+    gap: spacing.xs
   },
 
   results: {
-    flex: 1,
+    flex: 1
   },
 
   resultItem: {
@@ -22,20 +22,20 @@ export const styles = StyleSheet.create({
     padding: spacing.md,
     borderRadius: radius.md,
     borderWidth: 1,
-    marginBottom: spacing.sm,
+    marginBottom: spacing.sm
   },
 
   correct: {
     backgroundColor: colors.success,
-    borderColor: colors.successBorder,
+    borderColor: colors.successBorder
   },
 
   incorrect: {
     backgroundColor: colors.error,
-    borderColor: colors.errorBorder,
+    borderColor: colors.errorBorder
   },
 
   footer: {
-    paddingBottom: spacing.sm,
-  },
+    paddingBottom: spacing.sm
+  }
 })

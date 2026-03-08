@@ -6,22 +6,22 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "space-around",
-    gap: spacing.md,
+    gap: spacing.md
   },
 
   header: {
-    alignItems: "center",
+    alignItems: "center"
   },
 
   counterSection: {
     alignItems: "center",
-    gap: spacing.md,
+    gap: spacing.md
   },
 
   counter: {
     flexDirection: "row",
     alignItems: "center",
-    gap: spacing.lg,
+    gap: spacing.lg
   },
 
   counterButton: {
@@ -32,17 +32,17 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: colors.surfaceHigh,
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: colors.border
   },
 
   content: {
     alignItems: "center",
-    gap: spacing.lg,
+    gap: spacing.lg
   },
 
   historyLink: {
     color: colors.primary,
     marginTop: spacing.xs,
-    textDecorationLine: "underline",
-  },
+    textDecorationLine: "underline"
+  }
 })

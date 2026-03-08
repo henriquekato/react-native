@@ -1,11 +1,11 @@
-import type * as SQLite from 'expo-sqlite'
+import type * as SQLite from "expo-sqlite"
 
-import { getMigrations } from './migrations'
+import { getMigrations } from "./migrations"
 
-import type { Migration, SchemaVersion } from './types'
+import type { Migration, SchemaVersion } from "./types"
 
 export class MigrationManager {
-  private readonly SCHEMA_VERSION_TABLE = 'schema_version'
+  private readonly SCHEMA_VERSION_TABLE = "schema_version"
 
   constructor(private db: SQLite.SQLiteDatabase) {}
 
@@ -40,14 +40,15 @@ export class MigrationManager {
 
   private getPendingMigrations(currentVersion: number): Migration[] {
     const allMigrations = getMigrations()
-    return allMigrations.filter(migration => migration.version > currentVersion)
+    return allMigrations.filter(
+      (migration) => migration.version > currentVersion
+    )
   }
 
   private async executePendingMigrations(
     migrations: Migration[]
   ): Promise<void> {
     if (migrations.length === 0) return
-  
 
     for (const migration of migrations) {
       await this.executeMigration(migration)
@@ -58,7 +59,6 @@ export class MigrationManager {
     try {
       await migration.up(this.db)
       await this.recordMigration(migration)
-
     } catch (error) {
       throw error
     }
@@ -72,7 +72,7 @@ export class MigrationManager {
   }
 
   async getAppliedMigrations(): Promise<
-    Array<{ version: number; name: string; applied_at: string }>
+    { version: number; name: string; applied_at: string }[]
   > {
     return await this.db.getAllAsync(
       `SELECT version, name, applied_at FROM ${this.SCHEMA_VERSION_TABLE} ORDER BY version`

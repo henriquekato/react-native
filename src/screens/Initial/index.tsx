@@ -13,11 +13,8 @@ import { styles } from "./styles"
 export function Initial() {
   const { push } = useRouter()
 
-  const {
-    totalQuestions,
-    increaseQuestionCount,
-    decreaseQuestionCount
-  } = useQuestions()
+  const { totalQuestions, increaseQuestionCount, decreaseQuestionCount } =
+    useQuestions()
 
   function handleInitPress() {
     push("/question")
@@ -27,57 +24,49 @@ export function Initial() {
     <SafeAreaContainer>
       <KeyboardAvoidingContainer>
         <View style={styles.container}>
-
           <View style={styles.header}>
-            <Typography variant="h1">
-              Perguntas e Respostas
-            </Typography>
+            <Typography variant='h1'>Perguntas e Respostas</Typography>
 
             <Pressable onPress={() => push("/history")}>
-              <Typography variant="b1" style={styles.historyLink}>
+              <Typography variant='b1' style={styles.historyLink}>
                 Ver histórico
               </Typography>
             </Pressable>
           </View>
 
           <View style={styles.counterSection}>
-            <Typography variant="h5">
+            <Typography variant='h5'>
               Quantas perguntas deseja responder?
             </Typography>
 
-            <Typography variant="h5">
-              Entre 1 a 5 perguntas
-            </Typography>
+            <Typography variant='h5'>Entre 1 a 5 perguntas</Typography>
 
             <View style={styles.counter}>
               <Pressable
                 style={styles.counterButton}
                 onPress={decreaseQuestionCount}
               >
-                <Typography variant="h4">-</Typography>
+                <Typography variant='h4'>-</Typography>
               </Pressable>
 
-              <Typography variant="h3">
-                {totalQuestions}
-              </Typography>
+              <Typography variant='h3'>{totalQuestions}</Typography>
 
               <Pressable
                 style={styles.counterButton}
                 onPress={increaseQuestionCount}
               >
-                <Typography variant="h4">+</Typography>
+                <Typography variant='h4'>+</Typography>
               </Pressable>
             </View>
           </View>
 
           <View style={styles.content}>
-            <Typography variant="h5">
-              {`Responda ${totalQuestions} ${totalQuestions > 1 ? 'perguntas' : 'pergunta'} e veja seu resultado`}
+            <Typography variant='h5'>
+              {`Responda ${totalQuestions} ${totalQuestions > 1 ? "perguntas" : "pergunta"} e veja seu resultado`}
             </Typography>
 
-            <Button title="Começar" onPress={handleInitPress} />
+            <Button title='Começar' onPress={handleInitPress} />
           </View>
-
         </View>
       </KeyboardAvoidingContainer>
     </SafeAreaContainer>

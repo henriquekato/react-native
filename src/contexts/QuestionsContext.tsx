@@ -1,4 +1,10 @@
-import { createContext, PropsWithChildren, useContext, useRef, useState } from "react"
+import {
+  createContext,
+  PropsWithChildren,
+  useContext,
+  useRef,
+  useState
+} from "react"
 import { useRouter } from "expo-router"
 
 import { QuestionService } from "@services/question"
@@ -49,7 +55,7 @@ function QuestionsContextProvider({ children }: PropsWithChildren) {
       question: currentEntry.question,
       answer,
       isCorrect,
-      correctAnswer: correctAnswer.value,
+      correctAnswer: correctAnswer.value
     }
 
     setResults((prev) => [...prev, result])
@@ -90,7 +96,7 @@ function QuestionsContextProvider({ children }: PropsWithChildren) {
         handleAnswerPress,
         handleAnswerChange: setAnswer,
         increaseQuestionCount,
-        decreaseQuestionCount,
+        decreaseQuestionCount
       }}
     >
       {children}
@@ -102,7 +108,9 @@ function useQuestions() {
   const context = useContext(QuestionsContext)
 
   if (!context) {
-    throw new Error("useQuestions must be used within a QuestionsContextProvider")
+    throw new Error(
+      "useQuestions must be used within a QuestionsContextProvider"
+    )
   }
 
   return context

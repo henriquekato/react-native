@@ -1,43 +1,42 @@
-import { StyleSheet } from 'react-native'
-import { colors, spacing, radius } from '@globals/theme'
+import { StyleSheet } from "react-native"
+import { colors, spacing, radius } from "@globals/theme"
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.lg,
-    gap: spacing.lg,
+    gap: spacing.lg
   },
 
   header: {
-    gap: spacing.xs,
+    gap: spacing.xs
   },
 
   subtext: {
-    color: colors.textSecondary,
+    color: colors.textSecondary
   },
 
   centered: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center"
   },
 
   fillFlex: {
-    flex: 1,
+    flex: 1
   },
 
   emptyText: {
     color: colors.textSecondary,
-    textAlign: 'center',
+    textAlign: "center"
   },
 
   errorText: {
     color: colors.errorText,
-    textAlign: 'center',
+    textAlign: "center"
   },
 
-  
   card: {
     backgroundColor: colors.surface,
     borderRadius: radius.md,
@@ -45,46 +44,45 @@ export const styles = StyleSheet.create({
     borderColor: colors.border,
     padding: spacing.md,
     marginBottom: spacing.sm,
-    gap: spacing.sm,
+    gap: spacing.sm
   },
 
   cardHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center"
   },
 
   timeText: {
     color: colors.textSecondary,
-    marginTop: spacing.xs,
+    marginTop: spacing.xs
   },
 
   badge: {
     backgroundColor: colors.surfaceHigh,
     borderRadius: radius.full,
     paddingHorizontal: spacing.md,
-    paddingVertical: spacing.xs,
+    paddingVertical: spacing.xs
   },
 
   badgeText: {
-    color: colors.primary,
+    color: colors.primary
   },
 
-  
   progressBar: {
     height: 6,
     backgroundColor: colors.surfaceHigh,
     borderRadius: radius.full,
-    overflow: 'hidden',
+    overflow: "hidden"
   },
 
   progressFill: {
-    height: '100%',
+    height: "100%",
     backgroundColor: colors.primary,
-    borderRadius: radius.full,
+    borderRadius: radius.full
   },
 
   percentText: {
-    color: colors.textSecondary,
-  },
+    color: colors.textSecondary
+  }
 })

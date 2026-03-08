@@ -1,6 +1,6 @@
-import { dbService } from '@services/database'
+import { dbService } from "@services/database"
 
-import { INSERT_SESSION } from './sql'
+import { INSERT_SESSION } from "./sql"
 
 export class SessionRepository {
   private get db() {

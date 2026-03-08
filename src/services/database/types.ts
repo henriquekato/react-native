@@ -1,4 +1,4 @@
-import type * as SQLite from 'expo-sqlite'
+import type * as SQLite from "expo-sqlite"
 
 export interface Migration {
   version: number

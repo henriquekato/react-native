@@ -1,8 +1,8 @@
-import { dbService } from '@services/database'
+import { dbService } from "@services/database"
 
-import { CorrectAnswer } from '@dtos/correct-answer'
+import { CorrectAnswer } from "@dtos/correct-answer"
 
-import { FIND_CORRECT_ANSWER_BY_QUESTION_ID } from './sql'
+import { FIND_CORRECT_ANSWER_BY_QUESTION_ID } from "./sql"
 
 type CorrectAnswerRow = {
   id: string
@@ -21,12 +21,13 @@ export class CorrectAnswerRepository {
       { $questionId: questionId }
     )
 
-    if (!row) throw new Error(`Correct answer not found for question: ${questionId}`)
+    if (!row)
+      throw new Error(`Correct answer not found for question: ${questionId}`)
 
     return {
       id: row.id,
       questionId: row.question_id,
-      value: row.value,
+      value: row.value
     }
   }
 }

@@ -1,13 +1,13 @@
-import * as SQLite from 'expo-sqlite'
+import * as SQLite from "expo-sqlite"
 
-import { MigrationManager } from './MigrationManager'
+import { MigrationManager } from "./MigrationManager"
 
 class DatabaseService {
   private static instance: DatabaseService
   private db: SQLite.SQLiteDatabase | null = null
   private migrationManager: MigrationManager | null = null
 
-  private readonly DB_NAME = 'questions.db'
+  private readonly DB_NAME = "questions.db"
 
   static getInstance() {
     if (!DatabaseService.instance) {
@@ -18,13 +18,12 @@ class DatabaseService {
   }
 
   public connect(): SQLite.SQLiteDatabase {
-    if (!this.db) throw new Error('Database not initialized!')
+    if (!this.db) throw new Error("Database not initialized!")
     return this.db
   }
 
   public async initialize(): Promise<void> {
     if (this.db) return
-    
 
     await this.openDatabase()
     await this.runMigrations()
@@ -37,7 +36,6 @@ class DatabaseService {
         PRAGMA journal_mode = WAL;
         PRAGMA foreign_keys = ON;
       `)
-
     } catch (error) {
       throw error
     }
@@ -45,7 +43,7 @@ class DatabaseService {
 
   private async runMigrations(): Promise<void> {
     if (!this.db) {
-      throw new Error('Database not initialized!')
+      throw new Error("Database not initialized!")
     }
 
     try {

@@ -1,7 +1,7 @@
-import { HistoryRepository } from '@repositories/history'
-import { SessionRepository } from '@repositories/session'
+import { HistoryRepository } from "@repositories/history"
+import { SessionRepository } from "@repositories/session"
 
-import { HistorySession } from '@dtos/history'
+import { HistorySession } from "@dtos/history"
 
 export class HistoryService {
   private historyRepository = new HistoryRepository()

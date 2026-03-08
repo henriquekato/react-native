@@ -22,19 +22,28 @@ export function Result() {
     replace("/")
   }
 
-  function renderItem({ item, index }: { item: QuestionResult; index: number }) {
+  function renderItem({
+    item,
+    index
+  }: {
+    item: QuestionResult
+    index: number
+  }) {
     return (
-      <View style={[styles.resultItem, item.isCorrect ? styles.correct : styles.incorrect]}>
-        <Typography variant="h5">
+      <View
+        style={[
+          styles.resultItem,
+          item.isCorrect ? styles.correct : styles.incorrect
+        ]}
+      >
+        <Typography variant='h5'>
           {index + 1}. {item.question.title}
         </Typography>
 
-        <Typography variant="b1">
-          Sua resposta: {item.answer || "—"}
-        </Typography>
+        <Typography variant='b1'>Sua resposta: {item.answer || "—"}</Typography>
 
         {!item.isCorrect && (
-          <Typography variant="b1">
+          <Typography variant='b1'>
             Resposta correta: {item.correctAnswer}
           </Typography>
         )}
@@ -47,8 +56,8 @@ export function Result() {
       <KeyboardAvoidingContainer>
         <View style={styles.container}>
           <View style={styles.header}>
-            <Typography variant="h1">Resultado</Typography>
-            <Typography variant="h5">
+            <Typography variant='h1'>Resultado</Typography>
+            <Typography variant='h5'>
               {totalCorrect} de {results.length} corretas
             </Typography>
           </View>
@@ -61,7 +70,7 @@ export function Result() {
           />
 
           <View style={styles.footer}>
-            <Button title="Voltar" onPress={handleBackPress} />
+            <Button title='Voltar' onPress={handleBackPress} />
           </View>
         </View>
       </KeyboardAvoidingContainer>

@@ -19,7 +19,7 @@ export function Question() {
     loadQuestions,
     currentQuestionIndex,
     handleAnswerPress,
-    handleAnswerChange,
+    handleAnswerChange
   } = useQuestions()
 
   useEffect(() => {
@@ -41,12 +41,7 @@ export function Question() {
       )
     }
 
-    return (
-      <Input
-        value={answer}
-        onChangeText={handleAnswerChange}
-      />
-    )
+    return <Input value={answer} onChangeText={handleAnswerChange} />
   }
 
   return (
@@ -54,20 +49,18 @@ export function Question() {
       <KeyboardAvoidingContainer>
         <View style={styles.container}>
           <View style={styles.header}>
-            <Typography variant="h1">
+            <Typography variant='h1'>
               Pergunta {currentQuestionIndex + 1}
             </Typography>
 
-            <Typography variant="h5">
-              {currentQuestion?.title}
-            </Typography>
+            <Typography variant='h5'>{currentQuestion?.title}</Typography>
           </View>
 
           <View style={styles.question}>
             {renderAnswerInput()}
 
             <Button
-              title="Responder"
+              title='Responder'
               onPress={handleAnswerPress}
               disabled={!answer}
             />

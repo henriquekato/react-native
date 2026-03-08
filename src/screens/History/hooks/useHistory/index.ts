@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from "react"
 
-import { HistoryService } from '@services/history'
+import { HistoryService } from "@services/history"
 
-import { HistorySession } from '@dtos/history'
+import { HistorySession } from "@dtos/history"
 
 const historyService = new HistoryService()
 
@@ -24,7 +24,6 @@ export function useHistory() {
       setLoading(false)
     }
   }
-
 
   return { sessions, loading, refresh: fetchHistory }
 }

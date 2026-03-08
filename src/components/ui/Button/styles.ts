@@ -8,20 +8,20 @@ export const styles = StyleSheet.create({
     borderRadius: radius.sm,
     justifyContent: "center",
     alignItems: "center",
-    padding: spacing.sm,
+    padding: spacing.sm
   },
 
   pressed: {
-    backgroundColor: colors.primaryDark,
+    backgroundColor: colors.primaryDark
   },
 
   text: {
     color: colors.textPrimary,
-    fontWeight: "600",
+    fontWeight: "600"
   },
 
   disabled: {
     backgroundColor: colors.primary,
     opacity: 0.5
-  },
+  }
 })

@@ -1,10 +1,10 @@
-import type * as SQLite from 'expo-sqlite'
+import type * as SQLite from "expo-sqlite"
 
-import type { Migration } from '../types'
+import type { Migration } from "../types"
 
 export const migration_003: Migration = {
   version: 3,
-  name: 'add_session',
+  name: "add_session",
   up: async (db: SQLite.SQLiteDatabase) => {
     await db.execAsync(`
       CREATE TABLE IF NOT EXISTS session (
