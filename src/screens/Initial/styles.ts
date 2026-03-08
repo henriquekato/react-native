@@ -28,5 +28,11 @@ export const styles = StyleSheet.create({
     color: colors.primary,
     marginTop: spacing.xs,
     textDecorationLine: "underline"
+  },
+
+  image: {
+    width: "100%",
+    height: 320,
+    borderRadius: radius.lg
   }
 })

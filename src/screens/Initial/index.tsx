@@ -1,4 +1,4 @@
-import { Pressable, View } from "react-native"
+import { Image, Pressable, View } from "react-native"
 import { useRouter } from "expo-router"
 
 import { Button } from "@components/ui/Button"
@@ -12,6 +12,8 @@ import { useQuestions } from "@contexts/QuestionsContext"
 import { styles } from "./styles"
 
 export function Initial() {
+  const image = require("@assets/initial-image.jpg")
+
   const { push } = useRouter()
 
   const { totalQuestions, increaseQuestionCount, decreaseQuestionCount } =
@@ -34,6 +36,8 @@ export function Initial() {
               </Typography>
             </Pressable>
           </View>
+
+          <Image style={styles.image} source={image} />
 
           <View style={styles.counterSection}>
             <Typography variant='h4'>
