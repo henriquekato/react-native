@@ -22,7 +22,7 @@ export function Button({ title, onPress, disabled = false }: ButtonProps) {
       disabled={disabled}
       onPress={onPress}
     >
-      <Typography variant='b1' style={styles.text}>
+      <Typography variant='b1' style={styles.text} color='white'>
         {title}
       </Typography>
     </Pressable>

@@ -42,7 +42,13 @@ export function Question() {
       )
     }
 
-    return <Input value={answer} onChangeText={handleAnswerChange} />
+    return (
+      <Input
+        value={answer}
+        placeholder='Responda aqui'
+        onChangeText={handleAnswerChange}
+      />
+    )
   }
 
   return (

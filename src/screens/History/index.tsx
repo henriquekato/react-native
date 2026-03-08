@@ -5,6 +5,7 @@ import {
   ListRenderItemInfo
 } from "react-native"
 
+import { Button } from "@components/ui/Button"
 import { Typography } from "@components/ui/Typography"
 import { HistoryCard } from "./components/HistoryCard"
 import { SafeAreaContainer } from "@components/layout/SafeAreaContainer"
@@ -16,7 +17,7 @@ import { useHistory } from "./hooks/useHistory"
 import { styles } from "./styles"
 
 export function History() {
-  const { sessions, loading, refresh } = useHistory()
+  const { sessions, loading, refresh, handleBackPress } = useHistory()
 
   function renderEmpty() {
     return (
@@ -63,6 +64,10 @@ export function History() {
           refreshing={loading}
           contentContainerStyle={sessions.length === 0 && styles.fillFlex}
         />
+
+        <View style={styles.footer}>
+          <Button title='Voltar' onPress={handleBackPress} />
+        </View>
       </View>
     </SafeAreaContainer>
   )

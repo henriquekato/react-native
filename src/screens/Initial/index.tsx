@@ -27,7 +27,7 @@ export function Initial() {
           <View style={styles.header}>
             <Typography variant='h1'>Perguntas e Respostas</Typography>
 
-            <Pressable onPress={() => push("/history")}>
+            <Pressable hitSlop={32} onPress={() => push("/history")}>
               <Typography variant='b1' style={styles.historyLink}>
                 Ver histórico
               </Typography>

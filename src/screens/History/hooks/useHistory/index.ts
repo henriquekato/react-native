@@ -1,3 +1,4 @@
+import { useRouter } from "expo-router"
 import { useEffect, useState } from "react"
 
 import { HistoryService } from "@services/history"
@@ -9,6 +10,8 @@ const historyService = new HistoryService()
 export function useHistory() {
   const [sessions, setSessions] = useState<HistorySession[]>([])
   const [loading, setLoading] = useState(true)
+
+  const { back } = useRouter()
 
   useEffect(() => {
     fetchHistory()
@@ -26,5 +29,9 @@ export function useHistory() {
     }
   }
 
-  return { sessions, loading, refresh: fetchHistory }
+  function handleBackPress() {
+    back()
+  }
+
+  return { sessions, loading, refresh: fetchHistory, handleBackPress }
 }

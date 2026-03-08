@@ -16,7 +16,6 @@ export const styles = StyleSheet.create({
   },
 
   text: {
-    color: colors.textPrimary,
     fontWeight: "600"
   },
 

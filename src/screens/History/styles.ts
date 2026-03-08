@@ -35,5 +35,9 @@ export const styles = StyleSheet.create({
   errorText: {
     color: colors.errorText,
     textAlign: "center"
+  },
+
+  footer: {
+    paddingBottom: spacing.sm
   }
 })

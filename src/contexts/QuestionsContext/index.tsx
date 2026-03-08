@@ -30,7 +30,7 @@ function QuestionsContextProvider({ children }: PropsWithChildren) {
   const [totalQuestions, setTotalQuestions] = useState(1)
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
 
-  const { push } = useRouter()
+  const { replace } = useRouter()
 
   async function loadQuestions() {
     sessionId.current = `session_${Date.now()}`
@@ -73,7 +73,7 @@ function QuestionsContextProvider({ children }: PropsWithChildren) {
       return
     }
 
-    push("/result")
+    replace("/result")
   }
 
   function increaseQuestionCount() {
