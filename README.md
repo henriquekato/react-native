@@ -6,3 +6,13 @@
 # Sobre
 
 Jogo de perguntas e respostas
+
+# Como rodar
+
+```
+npm i
+npm start
+```
+
+- Use seu celular com expo go
+- Ou use emuladores
