@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Slot, SplashScreen } from "expo-router"
 import { GestureHandlerRootView } from "react-native-gesture-handler"
 
-import { dbService } from '@services/database'
+import { dbService } from "@services/database"
 
 SplashScreen.preventAutoHideAsync()
 
@@ -10,7 +10,8 @@ export default function RootLayout() {
   const [dbReady, setDbReady] = useState(false)
 
   useEffect(() => {
-    dbService.initialize()
+    dbService
+      .initialize()
       .then(() => setDbReady(true))
       .catch(console.error)
   }, [])

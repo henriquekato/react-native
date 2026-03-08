@@ -1,25 +1,25 @@
-import { StyleSheet } from "react-native";
-import { colors, radius, spacing } from "@globals/theme";
+import { StyleSheet } from "react-native"
+import { colors, radius, spacing } from "@globals/theme"
 
 export const styles = StyleSheet.create({
   container: {
-    gap: spacing.sm,
+    gap: spacing.sm
   },
 
   option: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     gap: spacing.md,
     padding: spacing.md,
     borderRadius: radius.md,
     borderWidth: 1,
     borderColor: colors.border,
-    backgroundColor: colors.surface,
+    backgroundColor: colors.surface
   },
 
   optionSelected: {
     borderColor: colors.primary,
-    backgroundColor: colors.surfaceHigh,
+    backgroundColor: colors.surfaceHigh
   },
 
   radio: {
@@ -28,26 +28,26 @@ export const styles = StyleSheet.create({
     borderRadius: radius.full,
     borderWidth: 2,
     borderColor: colors.textDisabled,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center"
   },
 
   radioSelected: {
-    borderColor: colors.primary,
+    borderColor: colors.primary
   },
 
   radioDot: {
     width: 10,
     height: 10,
     borderRadius: radius.full,
-    backgroundColor: colors.primary,
+    backgroundColor: colors.primary
   },
 
   label: {
-    color: colors.textSecondary,
+    color: colors.textSecondary
   },
 
   labelSelected: {
-    color: colors.textPrimary,
-  },
+    color: colors.textPrimary
+  }
 })

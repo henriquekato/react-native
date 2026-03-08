@@ -7,42 +7,32 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "space-around",
     gap: spacing.md,
+    padding: spacing.md
   },
 
   header: {
-    alignItems: "center",
+    alignItems: "center"
   },
 
   counterSection: {
     alignItems: "center",
-    gap: spacing.md,
-  },
-
-  counter: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: spacing.lg,
-  },
-
-  counterButton: {
-    width: 48,
-    height: 48,
-    borderRadius: radius.md,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: colors.surfaceHigh,
-    borderWidth: 1,
-    borderColor: colors.border,
+    gap: spacing.md
   },
 
   content: {
     alignItems: "center",
-    gap: spacing.lg,
+    gap: spacing.lg
   },
 
   historyLink: {
-    color: colors.primary,
     marginTop: spacing.xs,
-    textDecorationLine: "underline",
+    borderBottomColor: colors.primary,
+    borderBottomWidth: 1
   },
+
+  image: {
+    width: "100%",
+    height: 320,
+    borderRadius: radius.lg
+  }
 })

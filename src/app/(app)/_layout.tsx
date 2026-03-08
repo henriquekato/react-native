@@ -1,5 +1,5 @@
 import { Stack } from "expo-router"
-import { QuestionsContextProvider } from "src/contexts/QuestionsContext"
+import { QuestionsContextProvider } from "@contexts/QuestionsContext"
 
 export default function Layout() {
   return (

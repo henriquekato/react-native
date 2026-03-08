@@ -1,4 +1,4 @@
-import { Question } from '@dtos/question'
+import { Question } from "@dtos/question"
 
 export interface QuestionEntry {
   question: Question

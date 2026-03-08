@@ -1,10 +1,10 @@
-import { View, TouchableOpacity, StyleSheet, Pressable } from 'react-native'
+import { View, Pressable } from "react-native"
 
-import { Typography } from '@components/ui/Typography'
+import { Typography } from "@components/ui/Typography"
 
-import { QuestionOption } from '@dtos/question'
+import { QuestionOption } from "@dtos/question"
 
-import { styles } from './styles'
+import { styles } from "./styles"
 
 interface SelectProps {
   value: string
@@ -28,7 +28,10 @@ export function Select({ value, options, onChange }: SelectProps) {
               {isSelected && <View style={styles.radioDot} />}
             </View>
 
-            <Typography variant="b1" style={isSelected ? styles.labelSelected : styles.label}>
+            <Typography
+              variant='b1'
+              style={isSelected ? styles.labelSelected : styles.label}
+            >
               {option.label}
             </Typography>
           </Pressable>

@@ -1,4 +1,10 @@
-import { createContext, PropsWithChildren, useContext, useRef, useState } from "react"
+import {
+  createContext,
+  PropsWithChildren,
+  useContext,
+  useRef,
+  useState
+} from "react"
 import { useRouter } from "expo-router"
 
 import { QuestionService } from "@services/question"
@@ -24,11 +30,14 @@ function QuestionsContextProvider({ children }: PropsWithChildren) {
   const [totalQuestions, setTotalQuestions] = useState(1)
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
 
-  const { push } = useRouter()
+  const { replace } = useRouter()
 
   async function loadQuestions() {
     sessionId.current = `session_${Date.now()}`
-    await historyService.startSession(sessionId.current)
+    await historyService.startSession({
+      sessionId: sessionId.current,
+      totalQuestions
+    })
 
     const fetched = await questionService.getRandoms(totalQuestions)
     setQuestions(fetched.map((question) => ({ question, answer: "" })))
@@ -49,7 +58,7 @@ function QuestionsContextProvider({ children }: PropsWithChildren) {
       question: currentEntry.question,
       answer,
       isCorrect,
-      correctAnswer: correctAnswer.value,
+      correctAnswer: correctAnswer.value
     }
 
     setResults((prev) => [...prev, result])
@@ -67,7 +76,7 @@ function QuestionsContextProvider({ children }: PropsWithChildren) {
       return
     }
 
-    push("/result")
+    replace("/result")
   }
 
   function increaseQuestionCount() {
@@ -90,7 +99,7 @@ function QuestionsContextProvider({ children }: PropsWithChildren) {
         handleAnswerPress,
         handleAnswerChange: setAnswer,
         increaseQuestionCount,
-        decreaseQuestionCount,
+        decreaseQuestionCount
       }}
     >
       {children}
@@ -102,7 +111,9 @@ function useQuestions() {
   const context = useContext(QuestionsContext)
 
   if (!context) {
-    throw new Error("useQuestions must be used within a QuestionsContextProvider")
+    throw new Error(
+      "useQuestions must be used within a QuestionsContextProvider"
+    )
   }
 
   return context

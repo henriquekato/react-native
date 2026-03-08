@@ -1,8 +1,8 @@
-import { dbService } from '@services/database'
+import { dbService } from "@services/database"
 
-import { HistoryEntry, HistorySession } from '@dtos/history'
+import { HistoryEntry, HistorySession } from "@dtos/history"
 
-import { LIST_SESSIONS, GET_SESSION_ENTRIES } from './sql'
+import { LIST_SESSIONS, GET_SESSION_ENTRIES } from "./sql"
 
 type SessionRow = {
   id: string
@@ -39,7 +39,7 @@ export class HistoryRepository {
           playedAt: new Date(row.played_at),
           total: row.total,
           correct: row.correct,
-          entries: entryRows.map(mapEntry),
+          entries: entryRows.map(mapEntry)
         } satisfies HistorySession
       })
     )
@@ -61,17 +61,16 @@ export class HistoryRepository {
 
     if (!sessionRow) return null
 
-    const entryRows = await this.db.getAllAsync<EntryRow>(
-      GET_SESSION_ENTRIES,
-      { $sessionId: sessionId }
-    )
+    const entryRows = await this.db.getAllAsync<EntryRow>(GET_SESSION_ENTRIES, {
+      $sessionId: sessionId
+    })
 
     return {
       id: sessionRow.id,
       playedAt: new Date(sessionRow.played_at),
       total: sessionRow.total,
       correct: sessionRow.correct,
-      entries: entryRows.map(mapEntry),
+      entries: entryRows.map(mapEntry)
     }
   }
 }
@@ -82,6 +81,6 @@ function mapEntry(e: EntryRow): HistoryEntry {
     questionTitle: e.question_title,
     answer: e.answer,
     correctAnswer: e.correct_answer,
-    isCorrect: e.is_correct === 1,
+    isCorrect: e.is_correct === 1
   }
 }

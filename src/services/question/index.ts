@@ -1,6 +1,6 @@
-import { QuestionRepository } from '@repositories/question'
+import { QuestionRepository } from "@repositories/question"
 
-import { Question } from '@dtos/question'
+import { Question } from "@dtos/question"
 
 export class QuestionService {
   private repository = new QuestionRepository()

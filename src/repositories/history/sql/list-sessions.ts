@@ -2,8 +2,13 @@ export const LIST_SESSIONS = `
 SELECT
   s.id,
   s.played_at,
-  COUNT(a.id) AS total,
-  SUM(CASE WHEN a.value = ca.value THEN 1 ELSE 0 END) AS correct
+  s.total,
+ SUM(
+  CASE 
+    WHEN a.value IS NOT NULL AND LOWER(a.value) = LOWER(ca.value) THEN 1 
+    ELSE 0 
+  END
+) AS correct
 FROM
   session s
   LEFT JOIN answer a ON a.session_id = s.id

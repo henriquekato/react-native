@@ -7,6 +7,6 @@ export interface QuestionOption {
 export interface Question {
   id: string
   title: string
-  type: 'text' | 'select'
+  type: "text" | "select"
   options?: QuestionOption[]
 }

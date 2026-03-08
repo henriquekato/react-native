@@ -1,10 +1,10 @@
-import type * as SQLite from 'expo-sqlite'
+import type * as SQLite from "expo-sqlite"
 
-import type { Migration } from '../types'
+import type { Migration } from "../types"
 
 export const migration_001: Migration = {
   version: 1,
-  name: 'create_initial_tables',
+  name: "create_initial_tables",
   up: async (db: SQLite.SQLiteDatabase) => {
     await createSystemTables(db)
   }

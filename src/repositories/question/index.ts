@@ -1,8 +1,8 @@
-import { dbService } from '@services/database'
+import { dbService } from "@services/database"
 
-import { Question, QuestionOption } from '@dtos/question'
+import { Question, QuestionOption } from "@dtos/question"
 
-import { FIND_RANDOM_QUESTIONS, FIND_OPTIONS_BY_QUESTION_ID } from './sql'
+import { FIND_RANDOM_QUESTIONS, FIND_OPTIONS_BY_QUESTION_ID } from "./sql"
 
 export class QuestionRepository {
   private get db() {
@@ -10,14 +10,13 @@ export class QuestionRepository {
   }
 
   async findRandom(quantity: number): Promise<Question[]> {
-    const rows = await this.db.getAllAsync<Question>(
-      FIND_RANDOM_QUESTIONS,
-      { $quantity: quantity }
-    )
+    const rows = await this.db.getAllAsync<Question>(FIND_RANDOM_QUESTIONS, {
+      $quantity: quantity
+    })
 
     const questions = await Promise.all(
       rows.map(async (row) => {
-        if (row.type !== 'select') return row
+        if (row.type !== "select") return row
 
         const options = await this.db.getAllAsync<QuestionOption>(
           FIND_OPTIONS_BY_QUESTION_ID,

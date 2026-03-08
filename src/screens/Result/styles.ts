@@ -1,41 +1,23 @@
-import { StyleSheet } from 'react-native'
-import { colors, spacing, radius } from '@globals/theme'
+import { StyleSheet } from "react-native"
+import { colors, spacing, radius } from "@globals/theme"
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
     gap: spacing.lg,
     paddingVertical: spacing.lg,
-    paddingHorizontal: spacing.md,
+    paddingHorizontal: spacing.md
   },
 
   header: {
-    gap: spacing.xs,
+    gap: spacing.xs
   },
 
   results: {
-    flex: 1,
-  },
-
-  resultItem: {
-    gap: spacing.xs,
-    padding: spacing.md,
-    borderRadius: radius.md,
-    borderWidth: 1,
-    marginBottom: spacing.sm,
-  },
-
-  correct: {
-    backgroundColor: colors.success,
-    borderColor: colors.successBorder,
-  },
-
-  incorrect: {
-    backgroundColor: colors.error,
-    borderColor: colors.errorBorder,
+    flex: 1
   },
 
   footer: {
-    paddingBottom: spacing.sm,
-  },
+    paddingBottom: spacing.sm
+  }
 })
