@@ -1,7 +1,8 @@
-export const FIND_RANDOMS_QUESTION = `
+export const FIND_RANDOM_QUESTIONS = `
 SELECT
   q.id,
-  q.title
+  q.title,
+  q.type
 FROM
   question q
 ORDER BY

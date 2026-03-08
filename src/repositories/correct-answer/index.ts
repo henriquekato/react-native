@@ -1,11 +1,32 @@
-import { ICorrectAnswer } from "@dtos/correct-answer"
+import { dbService } from '@services/database'
 
-export function CorrectAnswerRepository() {
-  async function getByQuestionId(questionId: string): Promise<ICorrectAnswer> {
-    // TODO: query
+import { CorrectAnswer } from '@dtos/correct-answer'
 
-    return {} as ICorrectAnswer
+import { FIND_CORRECT_ANSWER_BY_QUESTION_ID } from './sql'
+
+type CorrectAnswerRow = {
+  id: string
+  question_id: string
+  value: string
+}
+
+export class CorrectAnswerRepository {
+  private get db() {
+    return dbService.connect()
   }
 
-  return { getByQuestionId }
+  async getByQuestionId(questionId: string): Promise<CorrectAnswer> {
+    const row = await this.db.getFirstAsync<CorrectAnswerRow>(
+      FIND_CORRECT_ANSWER_BY_QUESTION_ID,
+      { $questionId: questionId }
+    )
+
+    if (!row) throw new Error(`Correct answer not found for question: ${questionId}`)
+
+    return {
+      id: row.id,
+      questionId: row.question_id,
+      value: row.value,
+    }
+  }
 }

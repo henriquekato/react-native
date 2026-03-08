@@ -1,5 +1,5 @@
-export interface ICorrectAnswer {
+export interface CorrectAnswer {
   id: string
   questionId: string
-  text: string
+  value: string
 }

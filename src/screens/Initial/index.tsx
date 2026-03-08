@@ -1,4 +1,4 @@
-import { View } from "react-native"
+import { Pressable, View } from "react-native"
 import { useRouter } from "expo-router"
 
 import { Button } from "@components/ui/Button"
@@ -6,8 +6,18 @@ import { Typography } from "@components/ui/Typography"
 import { SafeAreaContainer } from "@components/layout/SafeAreaContainer"
 import { KeyboardAvoidingContainer } from "@components/layout/KeyboardAvoidingView"
 
+import { useQuestions } from "@contexts/QuestionsContext"
+
+import { styles } from "./styles"
+
 export function Initial() {
   const { push } = useRouter()
+
+  const {
+    totalQuestions,
+    increaseQuestionCount,
+    decreaseQuestionCount
+  } = useQuestions()
 
   function handleInitPress() {
     push("/question")
@@ -16,16 +26,58 @@ export function Initial() {
   return (
     <SafeAreaContainer>
       <KeyboardAvoidingContainer>
-        <View style={styles.header}>
-          <Typography variant='h1'>Perguntas e Respostas</Typography>
-        </View>
+        <View style={styles.container}>
 
-        <View styles={styles.content}>
-          <Typography variant='h5'>
-            Responda 5 perguntas e veja seu resultado
-          </Typography>
+          <View style={styles.header}>
+            <Typography variant="h1">
+              Perguntas e Respostas
+            </Typography>
 
-          <Button title='Começar' onPress={handleInitPress} />
+            <Pressable onPress={() => push("/history")}>
+              <Typography variant="b1" style={styles.historyLink}>
+                Ver histórico
+              </Typography>
+            </Pressable>
+          </View>
+
+          <View style={styles.counterSection}>
+            <Typography variant="h5">
+              Quantas perguntas deseja responder?
+            </Typography>
+
+            <Typography variant="h5">
+              Entre 1 a 5 perguntas
+            </Typography>
+
+            <View style={styles.counter}>
+              <Pressable
+                style={styles.counterButton}
+                onPress={decreaseQuestionCount}
+              >
+                <Typography variant="h4">-</Typography>
+              </Pressable>
+
+              <Typography variant="h3">
+                {totalQuestions}
+              </Typography>
+
+              <Pressable
+                style={styles.counterButton}
+                onPress={increaseQuestionCount}
+              >
+                <Typography variant="h4">+</Typography>
+              </Pressable>
+            </View>
+          </View>
+
+          <View style={styles.content}>
+            <Typography variant="h5">
+              {`Responda ${totalQuestions} ${totalQuestions > 1 ? 'perguntas' : 'pergunta'} e veja seu resultado`}
+            </Typography>
+
+            <Button title="Começar" onPress={handleInitPress} />
+          </View>
+
         </View>
       </KeyboardAvoidingContainer>
     </SafeAreaContainer>

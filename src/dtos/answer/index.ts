@@ -1,4 +1,4 @@
-export interface IAnswer {
+export interface Answer {
   id: string
   questionId: string
   text: string

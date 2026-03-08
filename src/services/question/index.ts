@@ -1,17 +1,11 @@
-import { QuestionRepository } from "@repositories/question"
+import { QuestionRepository } from '@repositories/question'
 
-import { IQuestion } from "@dtos/question"
+import { Question } from '@dtos/question'
 
-export function QuestionService() {
-  const repo = QuestionRepository()
+export class QuestionService {
+  private repository = new QuestionRepository()
 
-  async function getRandoms(quantity: number): Promise<IQuestion[]> {
-    const questions = await repo.findRandom(quantity)
-
-    return questions
-  }
-
-  return {
-    getRandoms
+  async getRandoms(quantity: number): Promise<Question[]> {
+    return this.repository.findRandom(quantity)
   }
 }

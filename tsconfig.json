@@ -6,6 +6,7 @@
     "paths": {
       "@dtos/*": ["src/dtos/*"],
       "@assets/*": ["src/assets/*"],
+      "@globals/*": ["src/globals/*"],
       "@screens/*": ["src/screens/*"],
       "@contexts/*": ["src/contexts/*"],
       "@services/*": ["src/services/*"],
