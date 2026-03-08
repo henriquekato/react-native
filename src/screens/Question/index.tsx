@@ -24,6 +24,7 @@ export function Question() {
 
   useEffect(() => {
     loadQuestions()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const currentQuestion = questions[currentQuestionIndex]?.question

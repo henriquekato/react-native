@@ -19,7 +19,8 @@ export function useHistory() {
       setLoading(true)
       const data = await historyService.getAll()
       setSessions(data)
-    } catch (e) {
+    } catch (error) {
+      console.log(error)
     } finally {
       setLoading(false)
     }

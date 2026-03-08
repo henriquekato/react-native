@@ -1,4 +1,4 @@
-import { View, TouchableOpacity, StyleSheet, Pressable } from "react-native"
+import { View, Pressable } from "react-native"
 
 import { Typography } from "@components/ui/Typography"
 

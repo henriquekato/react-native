@@ -11,11 +11,7 @@ interface ButtonProps {
   onPress: (event: GestureResponderEvent) => void
 }
 
-export const Button: React.FC<ButtonProps> = ({
-  title,
-  onPress,
-  disabled = false
-}) => {
+export function Button({ title, onPress, disabled = false }: ButtonProps) {
   return (
     <Pressable
       style={({ pressed }) => [

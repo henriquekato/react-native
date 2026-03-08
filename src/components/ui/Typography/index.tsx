@@ -10,12 +10,12 @@ interface TypographyProps extends TextProps {
   color?: string
 }
 
-export const Typography: React.FC<TypographyProps> = ({
+export function Typography({
   variant = "b1",
   color = "#000",
   children,
   ...rest
-}) => {
+}: TypographyProps) {
   return (
     <Text
       {...rest}
