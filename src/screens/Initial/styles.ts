@@ -25,9 +25,9 @@ export const styles = StyleSheet.create({
   },
 
   historyLink: {
-    color: colors.primary,
     marginTop: spacing.xs,
-    textDecorationLine: "underline"
+    borderBottomColor: colors.primary,
+    borderBottomWidth: 1
   },
 
   image: {

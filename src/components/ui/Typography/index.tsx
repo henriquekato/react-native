@@ -14,12 +14,13 @@ export function Typography({
   variant = "b1",
   color = "#000",
   children,
+  style,
   ...rest
 }: TypographyProps) {
   return (
     <Text
       {...rest}
-      style={[styles.base, TypographyConfigs[variant], { color }]}
+      style={[styles.base, TypographyConfigs[variant], { color }, style]}
     >
       {children}
     </Text>
