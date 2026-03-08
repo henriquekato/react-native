@@ -3,6 +3,7 @@ import { useRouter } from "expo-router"
 
 import { Button } from "@components/ui/Button"
 import { Typography } from "@components/ui/Typography"
+import { QuestionsCounter } from "./components/QuestionsCounter"
 import { SafeAreaContainer } from "@components/layout/SafeAreaContainer"
 import { KeyboardAvoidingContainer } from "@components/layout/KeyboardAvoidingView"
 
@@ -35,29 +36,17 @@ export function Initial() {
           </View>
 
           <View style={styles.counterSection}>
-            <Typography variant='h5'>
+            <Typography variant='h4'>
               Quantas perguntas deseja responder?
             </Typography>
 
             <Typography variant='h5'>Entre 1 a 5 perguntas</Typography>
 
-            <View style={styles.counter}>
-              <Pressable
-                style={styles.counterButton}
-                onPress={decreaseQuestionCount}
-              >
-                <Typography variant='h4'>-</Typography>
-              </Pressable>
-
-              <Typography variant='h3'>{totalQuestions}</Typography>
-
-              <Pressable
-                style={styles.counterButton}
-                onPress={increaseQuestionCount}
-              >
-                <Typography variant='h4'>+</Typography>
-              </Pressable>
-            </View>
+            <QuestionsCounter
+              total={totalQuestions}
+              decrease={decreaseQuestionCount}
+              increase={increaseQuestionCount}
+            />
           </View>
 
           <View style={styles.content}>

@@ -6,7 +6,8 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "space-around",
-    gap: spacing.md
+    gap: spacing.md,
+    padding: spacing.md
   },
 
   header: {
@@ -16,23 +17,6 @@ export const styles = StyleSheet.create({
   counterSection: {
     alignItems: "center",
     gap: spacing.md
-  },
-
-  counter: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: spacing.lg
-  },
-
-  counterButton: {
-    width: 48,
-    height: 48,
-    borderRadius: radius.md,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: colors.surfaceHigh,
-    borderWidth: 1,
-    borderColor: colors.border
   },
 
   content: {

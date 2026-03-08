@@ -6,7 +6,11 @@ export class AnswerService {
   private correctAnswerRepository = new CorrectAnswerRepository()
 
   async checkAnswer(sessionId: string, questionId: string, answer: string) {
-    await this.answerRepository.save(sessionId, questionId, answer)
+    await this.answerRepository.save(
+      sessionId,
+      questionId,
+      answer.trim().toLowerCase()
+    )
 
     const correctAnswer =
       await this.correctAnswerRepository.getByQuestionId(questionId)

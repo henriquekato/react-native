@@ -34,7 +34,10 @@ function QuestionsContextProvider({ children }: PropsWithChildren) {
 
   async function loadQuestions() {
     sessionId.current = `session_${Date.now()}`
-    await historyService.startSession(sessionId.current)
+    await historyService.startSession({
+      sessionId: sessionId.current,
+      totalQuestions
+    })
 
     const fetched = await questionService.getRandoms(totalQuestions)
     setQuestions(fetched.map((question) => ({ question, answer: "" })))
