@@ -1,4 +1,4 @@
-import { View } from "react-native"
+import { View, TouchableWithoutFeedback, Keyboard } from "react-native"
 import { useEffect } from "react"
 
 import { Input } from "@components/ui/Input"
@@ -54,25 +54,27 @@ export function Question() {
   return (
     <SafeAreaContainer>
       <KeyboardAvoidingContainer>
-        <View style={styles.container}>
-          <View style={styles.header}>
-            <Typography variant='h1'>
-              Pergunta {currentQuestionIndex + 1}
-            </Typography>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <View style={styles.container}>
+            <View style={styles.header}>
+              <Typography variant='h1'>
+                Pergunta {currentQuestionIndex + 1}
+              </Typography>
 
-            <Typography variant='h5'>{currentQuestion?.title}</Typography>
+              <Typography variant='h5'>{currentQuestion?.title}</Typography>
+            </View>
+
+            <View style={styles.question}>
+              {renderAnswerInput()}
+
+              <Button
+                title='Responder'
+                onPress={handleAnswerPress}
+                disabled={!answer}
+              />
+            </View>
           </View>
-
-          <View style={styles.question}>
-            {renderAnswerInput()}
-
-            <Button
-              title='Responder'
-              onPress={handleAnswerPress}
-              disabled={!answer}
-            />
-          </View>
-        </View>
+        </TouchableWithoutFeedback>
       </KeyboardAvoidingContainer>
     </SafeAreaContainer>
   )
